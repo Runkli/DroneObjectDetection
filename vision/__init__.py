@@ -12,7 +12,11 @@ from timeit import default_timer as timer
 
 import numpy as np
 from PIL import Image, ImageFont, ImageDraw
+
 from keras import backend as K
+import tensorflow as tf
+#import tensorflow.compat.v1.keras.backend as
+import tensorflow.compat.v1.keras.backend as K
 from keras.layers import Input
 from keras.models import load_model
 from keras.utils import multi_gpu_model
@@ -23,7 +27,7 @@ from settings import *
 import sys
 
 sys.path.append("..")
-
+tf.compat.v1.disable_eager_execution()
 
 def online_client():
     print("Establishing Connection...")
